@@ -4,12 +4,14 @@
   const question= document.getElementById('question');
   const choices= document.getElementById('choices');
   const btn= document.getElementById('btn');
+  const result= document.getElementById('result');
+  const scoreLabel = document.querySelector('#result > p');
 
-  const quizSet = [
-    {q: 'What is A?', c:['a0','a1','a2']},
-    {q: 'What is B?', c:['b0','b1','b2']},
-    {q: 'What is C?', c:['a0','a1','a2']},
-  ];
+  const quizSet = shuffle([
+    {q: '日本で一番高い山は?', c:['富士山','阿蘇山','金比羅山']},
+    {q: '12の2乗は?', c:['144','246','168']},
+    {q: '英語で水は?', c:['water','wonder','war']},
+  ]);
   let currentNum = 0;
   let isAnswered;
   let score=0;
@@ -70,7 +72,8 @@
     btn.classList.add('disabled');
 
     if(currentNum===quizSet.length -1){
-      console.log(`score:${score}/${quizSet.length}`);
+      scoreLabel.textContent= `score:${score}/${quizSet.length}`;
+      result.classList.remove('hidden');
     }else{
       currentNum++;
       setQuiz();
