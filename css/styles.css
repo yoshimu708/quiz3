@@ -22,6 +22,7 @@ h1{
   background: #fff;
   border-radius: 4px;
   padding:16px;
+  position:relative;
 }
 
 #question{
@@ -47,20 +48,30 @@ h1{
   background: lightgray;
 }
 
+#choices li.correct::after{
+  content:'...correct!';
+}
+
 #choices li.correct{
   background: #d4edda;
-  border-bolor:#c3e6cb;
+  border-color:#c3e6cb;
   color: #155724;
   font-weight: bold;
 }
+
+
+#choices li.wrong::after{
+  content:'...wrong!';
+}
+
 #choices li.wrong{
   background: #f8d8da;
-  border-bolor:#f5c6cb;
+  border-color:#f5c6cb;
   color: #721c24;
   font-weight: bold;
 }
 
-#btn{
+#btn, #result a{
   background:blue;
   padding:8px;
   border-radius:4px;
@@ -74,4 +85,27 @@ h1{
   background:#ccc;
   box-shadow:0 4px 0 #bbb;
   opacity:0.7;
+}
+
+#result{
+  position:absolute;
+  width:300px;
+  background-color: white;
+  padding:30px;
+  box-shadow:0 4px 8px rgba(0,0,0,0.2);
+  top:50px;
+  left:0;
+  right:0;
+  margin:0 auto;
+  border-radius:4px;
+  text-align: center;
+}
+
+#result p{
+  font-size:24px;
+}
+
+#result a{
+  display:block;
+  text-decoration: none;
 }
